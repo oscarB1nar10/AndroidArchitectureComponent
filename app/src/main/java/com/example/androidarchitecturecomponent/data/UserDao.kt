@@ -1,12 +1,12 @@
 package com.example.androidarchitecturecomponent.data
 
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface UserDao{
     @Query("SELECT * FROM user")
-    fun getAll(): MutableLiveData<List<User>>
+    fun getAll(): LiveData<List<User>>
 
     @Update
     fun updateUsers(vararg users: User)

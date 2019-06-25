@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -32,14 +31,29 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
     //Room
-    implementation "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-ktx:2.1.0-alpha07"
-
 
     //LiveData
     implementation "androidx.lifecycle:lifecycle-livedata:$room_version"
     implementation "androidx.lifecycle:lifecycle-runtime:$room_version"
-    //
+    //lifecycle
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-alpha01"
+    //coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-alpha01'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0-beta01'
+    //Google
+    //BaseActivity
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
+
+    kapt "android.arch.lifecycle:compiler:2.1.0-beta01"
+    kapt  "android.arch.persistence.room:compiler:$room_version"
+    kapt "android.arch.lifecycle:extensions:$room_version"
+
+
+
 }
